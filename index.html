@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game</title>
+  <link rel="stylesheet" href="./stylesheet.css">
+  <link rel="stylesheet" href="./mobilecontrols/mobile-controls.css">
+</head>
+
+<body>
+  <script src="./liberarys/joy.min.js"></script>
+  <div id="kill-counter">Kills: 0</div>
+
+  <div id="ui-holder">
+    <div id="joyDiv" style="width:200px; height:200px; margin-bottom:20px;"></div>
+  </div>
+
+  <div id="game-container">
+    <button class="startbutton" onclick="startGame()">Start Game</button>
+  </div>
+
+  <canvas id="particle-canvas"></canvas>
+
+  <div id="cursor-collision-box" class="cursor-collision-box">
+    <div id="cursor">
+      <div id="cursor-hand-r"></div>
+      <div id="cursor-hand-r-detector"></div>
+      <div id="cursor-hand-l"></div>
+      <div id="cursor-hand-l-detector"></div>
+    </div>
+  </div>
+  <script>
+    /* Set the width of the side navigation to 250px */
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    /* Set the width of the side navigation to 0 */
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+
+  <div class="openbutton" onclick="openNav()">open</div>
+  <div id="mySidenav" class="adminpanel">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div id="panel">
+      <h1 style="text-align: center; color: white;">Admin Panel</h1>
+      <div class="sectionseperator">
+      </div>
+      <table class="adminpaneltable">
+        <tr>
+          <h2 style="text-align: center; color: white;">Fun Things</h2>
+        </tr>
+        <tr>
+          <div class="settings">
+            <h3 style="text-align: center; color: white;"">Kills</h3>
+            <input type="number" id="killsvalue" class="killsvalue">
+            <button class="savebutton" id="savevalues">Save Changes</button>
+          </div>
+        </tr>
+        <tr>
+          <h2 style="text-align: center; color: white;">Debug</h2>
+        </tr>
+        <tr>
+          <div id="debugoutput"></div>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <script src="./APhandler.js"></script>
+  <script src="scripts.js"></script>
+  <script src="./mobilecontrols/mobile-controls.js"></script>
+  <audio id="Stage1Music" loop>
+    <source src="./Audio/Stage1.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="Stage2Music" loop>
+    <source src="./Audio/Stage2.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="Stage3Music" loop>
+    <source src="./Audio/Stage3.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="Stage4Music" loop>
+    <source src="./Audio/Stage4.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="Stage5Music" loop>
+    <source src="./Audio/Stage5.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="Stage6Music" loop>
+    <source src="./Audio/Stage6.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="Stage7Music" loop>
+    <source src="./Audio/Stage7.mp3" type="audio/mpeg">
+  </audio>
+</body>
+
+</html>

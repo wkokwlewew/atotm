@@ -1,0 +1,362 @@
+
+@font-face{
+  font-family: "Hylia";
+  src: local("Hylia Regular"),url("./fonts/HyliaSerifBeta-Regular.otf");
+  font-weight: normal;
+  font-size: xx-small,smaller,smaller;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.openbutton{
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 75px;
+  height: 35px;
+  background-color: #222;
+  color: white;
+  font-size: 25px;
+  font-family: "Hylia";
+  align-content: center;
+  text-align: center;
+  border-radius: 5%;
+  cursor: pointer;
+}
+
+#game-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+#ui-holder{
+  position: absolute;
+  z-index: 1;
+  bottom: 10px;
+  left: 10px;
+}
+
+.monster {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+
+.health-bar {
+  height: 10px;
+  top: -25px;
+  margin-bottom: 1px;
+  background-color: red;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  border-color: #222;
+}
+
+.health-bar-fill {
+  height: 100%;
+  background-color: green;
+  transition: width 0.3s ease;
+
+}
+#kill-counter {
+  position: fixed;
+  top: 10px;
+  left: 25%;
+  text-align: center;
+  /*display: block;*/
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  font-size: 50px;
+  color: black;
+  z-index: 3;
+  background: black;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: Hylia;
+}
+
+#kill-counter.stage1{
+  background: red;
+}
+
+#kill-counter.stage2{
+  background: darkred;
+}
+
+#kill-counter.stage3{
+  background: linear-gradient(to right,black,cyan);
+}
+
+#kill-counter.stage4{
+  background: red;
+}
+
+#kill-counter.stage5{
+  background: purple;
+}
+
+#kill-counter.stage6{
+  background: yellow;
+}
+
+#kill-counter.stage7{
+  background: black;
+}
+#particle-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#cursor {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 4;
+  position: relative;
+  cursor: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes fadecyan{
+  0% {background-color:white;}
+  100% {background-color: cyan;}
+}
+
+@keyframes fadepurple{
+  0% {background-color:purple;}
+  100% {background-color: white;}
+}
+@keyframes fadered{
+  0% {background-color:white;}
+  100% {background-color: red;}
+}
+@keyframes pulse-red {
+  0%, 100% { background-color: red; }
+  50% { background-color: darkred; }
+}
+
+.dot-trail {
+  position: fixed;
+  width: 5px;
+  height: 5px;
+  background-color: red;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.startbutton{
+  background-color: #00b86b;
+  border-radius: 50px;
+  width: 75%;
+  height: 10%;
+  font-size: 150%;
+  position: fixed;
+  left: 15%;
+  top: 40%;
+}
+
+#cursor-collision-box{
+  z-index: 4;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  background-color: transparent;
+}
+
+#cursor-hand-r-detector{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -60px;
+  left: -10px;
+  background-color: transparent;
+  z-index: 4;
+}
+
+#cursor-hand-l-detector{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -60px;
+  right: -10px;
+  background-color: transparent;
+  z-index: 4;
+
+}
+
+#cursor-hand-r{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: relative;
+  top: -30px;
+  left: -10px;
+  z-index: 5;
+  background-color: burlywood;
+}
+
+#cursor-hand-l{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: relative;
+  top: -30px;
+  right: -10px;
+  z-index: 5;
+  background-color: burlywood;
+}
+@keyframes punch{
+  0%, 100% {top: -30px;}
+  50% {top: -50px;}
+}
+
+.adminpanel {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 99999; /* Stay on top */
+  top: 0; /* Stay at the top */
+  right: 0;
+  background-color: rgba(2, 2, 2, 0.75); /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.adminpanel a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.adminpanel .sectionseperator{
+  border-width: 1px;
+  border-color: #f1f1f1;
+  border-style: solid;
+  margin-left: 10px;
+  margin-top: 25px;
+  margin-right: 10px;
+}
+
+.adminpaneltable{
+  position: relative;
+  width: calc(100% - 20px);
+  margin-left: 10px; 
+  margin-right: 10px; 
+}
+
+.adminpaneltable th,.adminpaneltable tr{
+  border-bottom: #f1f1f1 2px solid;
+  padding: 10px;
+
+}
+
+/* When you mouse over the navigation links, change their color */
+.adminpanel a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.closebtn {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 36px;
+  margin-right: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .adminpanel {padding-top: 15px;}
+  .adminpanel a {font-size: 18px;}
+}
+
+#debugoutput {
+  background-color: inherit;
+  color: #fff;
+  font-family: Consolas, monospace;
+  position: relative;
+  padding: 10px;
+  width: calc(100% - 43px);
+  height: 300px;
+  margin: 10px;
+  border-color: white;
+  border-width: 1px;
+  border-style: solid;
+  overflow: auto;
+  font-size: 14px;
+}
+
+.log {
+  color: #0af;
+}
+
+.error {
+  color: #f00;
+}
+
+.warn {
+  color: #ff0;
+}
+
+.settings{
+  border-color: white;
+  border-width: 1px;
+  border-style: solid;
+  background-color: inherit;
+  position: relative;
+  padding: 10px;
+  width: calc(100% - 43px);
+  height: fit-content;
+  margin: 10px;
+}
+
+.settings .killsvalue{
+  border: inherit;
+  width: calc(100% - 63px);
+  height: 25px;
+  background-color: inherit;
+  color: #f1f1f1;
+}
+
+.savebutton{
+  margin: 10px;
+  border: inherit;
+  position: relative;
+  width: calc(100% - 20px);
+  background-color: inherit;
+  color: #f1f1f1;
+  transition: ease 0.3s;
+}
+
+.savebutton:hover{
+  background-color: rgba(2, 2, 2, 1);
+}
+
